@@ -1,25 +1,33 @@
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import ContactForm from 'components/ContactForm';
 import ContactList from 'components/ContactList';
 import Filter from 'components/Filter';
-import { addContact, deleteContact } from 'redux/contacts/contacts-slice';
+import {
+  addContact,
+  deleteContact,
+  fetchContacts,
+} from 'redux/contacts/contacts-operations';
 import { setFilter } from 'redux/filter/filter-slice';
 
 import {
-  getContacts,
-  getFilteredContacts,
+  selectContacts,
+  selectFilteredContacts,
 } from 'redux/contacts/contacts-selectors';
-import { getFilter } from 'redux/filter/filter-selectors';
+import { selectFilter } from 'redux/filter/filter-selectors';
 
 import { Container, MainTitle, ContactsTitle } from './App.styled';
 
 const App = () => {
-  const contacts = useSelector(getContacts);
-  const filteredContacts = useSelector(getFilteredContacts);
-  const filter = useSelector(getFilter);
-
+  const contacts = useSelector(selectContacts);
+  const filteredContacts = useSelector(selectFilteredContacts);
+  const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   const handleSubmit = contact => {
     const { name } = contact;

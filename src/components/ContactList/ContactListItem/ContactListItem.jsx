@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import { Item, Text, Button } from './ContactListItem.styled';
 
-const ContactListItem = ({ id, name, number, onDelete }) => {
+const ContactListItem = ({ id, name, phone, onDelete }) => {
   return (
     <Item>
       <Text>
-        {name}: {number}
+        {name}: {phone}
       </Text>
       <Button onClick={() => onDelete(id)} type="button">
         Delete
@@ -17,7 +17,7 @@ const ContactListItem = ({ id, name, number, onDelete }) => {
 ContactListItem.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
+  phone: PropTypes.string.isRequired,
   onDelete: PropTypes.func.isRequired,
 };
 

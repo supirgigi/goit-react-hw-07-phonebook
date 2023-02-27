@@ -1,8 +1,10 @@
-export const getContacts = store => store.contacts;
+export const selectContacts = state => state.contacts.items;
+export const selectIsLoading = state => state.contacts.isLoading;
+export const selectError = state => state.contacts.error;
 
-export const getFilteredContacts = ({ contacts, filter }) => {
+export const selectFilteredContacts = ({ contacts, filter }) => {
   const normalizedFilter = filter.toLowerCase();
-  return contacts.filter(({ name }) =>
+  return contacts.items.filter(({ name }) =>
     name.toLowerCase().includes(normalizedFilter)
   );
 };

@@ -5,12 +5,12 @@ import { List } from './ContactList.styled';
 const ContactList = ({ contacts, onDelete }) => {
   return (
     <List>
-      {contacts.map(({ id, name, number }) => (
+      {contacts.map(({ id, name, phone }) => (
         <ContactListItem
           key={id}
           id={id}
           name={name}
-          number={number}
+          phone={phone}
           onDelete={onDelete}
         ></ContactListItem>
       ))}
@@ -27,7 +27,7 @@ ContactList.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
+      phone: PropTypes.string.isRequired,
     })
   ),
   onDelete: PropTypes.func.isRequired,
