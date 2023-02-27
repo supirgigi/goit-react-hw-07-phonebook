@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+
 import ContactListItem from './ContactListItem';
 import { List } from './ContactList.styled';
 

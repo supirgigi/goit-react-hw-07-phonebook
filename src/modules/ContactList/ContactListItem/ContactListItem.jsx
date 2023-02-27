@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+
 import { Item, Text, Button } from './ContactListItem.styled';
 
 const ContactListItem = ({ id, name, phone, onDelete }) => {

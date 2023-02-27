@@ -1,24 +1,26 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+
 import ContactForm from 'modules/ContactForm';
 import ContactList from 'modules/ContactList';
 import Filter from 'modules/Filter';
+
 import {
   addContact,
   deleteContact,
   fetchContacts,
 } from 'redux/contacts/contacts-operations';
-import { setFilter } from 'redux/filter/filter-slice';
-
 import {
   selectContacts,
   selectFilteredContacts,
   selectError,
   selectIsLoading,
 } from 'redux/contacts/contacts-selectors';
+import { setFilter } from 'redux/filter/filter-slice';
 import { selectFilter } from 'redux/filter/filter-selectors';
-import ErrorMsg from '../../shared/components/ErrorMsg';
-import Loader from '../../shared/components/Loader';
+
+import ErrorMsg from 'shared/components/ErrorMsg';
+import Loader from 'shared/components/Loader';
 
 import { Container, MainTitle, ContactsTitle } from './App.styled';
 
