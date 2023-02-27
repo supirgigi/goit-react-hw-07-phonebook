@@ -14,6 +14,8 @@ import { setFilter } from 'redux/filter/filter-slice';
 import {
   selectContacts,
   selectFilteredContacts,
+  selectError,
+  selectIsLoading,
 } from 'redux/contacts/contacts-selectors';
 import { selectFilter } from 'redux/filter/filter-selectors';
 
@@ -23,6 +25,8 @@ const App = () => {
   const contacts = useSelector(selectContacts);
   const filteredContacts = useSelector(selectFilteredContacts);
   const filter = useSelector(selectFilter);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -54,6 +58,8 @@ const App = () => {
       {contacts.length > 0 && (
         <ContactList contacts={filteredContacts} onDelete={handleDelete} />
       )}
+      {isLoading && <p>Loading...</p>}
+      {error && <p>{error}</p>}
     </Container>
   );
 };

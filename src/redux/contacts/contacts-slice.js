@@ -21,20 +21,18 @@ const contactsSlice = createSlice({
       .addCase(fetchContacts.fulfilled, (state, action) => {
         state.items = action.payload;
         state.isLoading = false;
-        state.error = null;
       })
       .addCase(addContact.fulfilled, (state, action) => {
         state.items.push(action.payload);
         state.isLoading = false;
-        state.error = null;
       })
       .addCase(deleteContact.fulfilled, (state, action) => {
         state.items = state.items.filter(item => item.id !== action.payload.id);
         state.isLoading = false;
-        state.error = null;
       })
       .addMatcher(isAnyOf(...actions.map(action => action.pending)), state => {
         state.isLoading = true;
+        state.error = null;
       })
       .addMatcher(
         isAnyOf(...actions.map(action => action.rejected)),
