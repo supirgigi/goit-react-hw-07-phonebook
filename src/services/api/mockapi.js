@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://63fca459859df29986c12d74.mockapi.io',
+  baseURL: 'https://63fca459859df29986c12d74.mockapi.io/api',
 });
 
 export const fetchAll = async () => {
