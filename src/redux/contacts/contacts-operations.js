@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchAll, deleteItem, addItem } from 'services/api/mockapi';
+import { fetchAll, deleteItem, addItem } from 'shared/services/api/mockapi';
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',

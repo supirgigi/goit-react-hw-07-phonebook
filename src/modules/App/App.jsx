@@ -1,9 +1,8 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
-import ContactForm from 'components/ContactForm';
-import ContactList from 'components/ContactList';
-import Filter from 'components/Filter';
+import ContactForm from 'modules/ContactForm';
+import ContactList from 'modules/ContactList';
+import Filter from 'modules/Filter';
 import {
   addContact,
   deleteContact,
@@ -18,6 +17,8 @@ import {
   selectIsLoading,
 } from 'redux/contacts/contacts-selectors';
 import { selectFilter } from 'redux/filter/filter-selectors';
+import ErrorMsg from '../../shared/components/ErrorMsg';
+import Loader from '../../shared/components/Loader';
 
 import { Container, MainTitle, ContactsTitle } from './App.styled';
 
@@ -58,8 +59,8 @@ const App = () => {
       {contacts.length > 0 && (
         <ContactList contacts={filteredContacts} onDelete={handleDelete} />
       )}
-      {isLoading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
+      {isLoading && <Loader />}
+      {error && <ErrorMsg error={error} />}
     </Container>
   );
 };
