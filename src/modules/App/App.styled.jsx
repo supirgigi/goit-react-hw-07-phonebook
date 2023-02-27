@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding-top: ${props => props.theme.spacing(4)};
-  padding-left: ${props => props.theme.spacing(4)};
-  padding-right: ${props => props.theme.spacing(4)};
+  padding: ${props => props.theme.spacing(4)};
 
   @media screen and (min-width: 480px) {
     width: 480px;
